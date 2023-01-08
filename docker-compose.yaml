@@ -1,6 +1,6 @@
 services:
-  postgres:
-    container_name: postgres_container
+  postgres_sandbox:
+    container_name: pg_sandbox
     image: postgres
     environment:
       POSTGRES_USER: postgres
@@ -8,4 +8,26 @@ services:
       POSTGRES_PASSWORD: admin
       PGDATA: /data/postgres
     ports:
+      - '5433:5432'
+
+  postgres_users:
+    container_name: pg_users
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: users
+      POSTGRES_PASSWORD: admin
+      PGDATA: /data/postgres
+    ports:
       - '5432:5432'
+
+  postgres_posts:
+    container_name: pg_posts
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: posts
+      POSTGRES_PASSWORD: admin
+      PGDATA: /data/postgres
+    ports:
+      - '5434:5432'
