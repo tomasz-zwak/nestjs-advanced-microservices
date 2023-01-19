@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package posts;
+
+service PostsService {
+  rpc Create (PostDto) returns (Post) {}
+  rpc Delete (PostById) returns (Post) {}
+  rpc FindOne (PostById) returns (Post) {}
+  rpc FindAll (UserId) returns (Posts) {}
+}
+
+message PostDto {
+  string content = 1;
+  int32 user_id = 2;
+}
+
+message PostById {
+  int32 id = 1;
+}
+
+message Post {
+  int32 id = 1;
+  string content = 2;
+}
+
+message Posts {
+  repeated Post posts = 1;
+}
+
+message UserId {
+  int32 id = 1;
+}

@@ -6,6 +6,7 @@ import {
   DatabaseConfigType,
   makeConnectionConfig,
 } from 'apps/users/src/database/database.config';
+import { User } from 'apps/users/src/user.entity';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import {
       useFactory(config: DatabaseConfigType) {
         return {
           ...makeConnectionConfig(config),
-          entities: [],
+          entities: [User],
         };
       },
     }),

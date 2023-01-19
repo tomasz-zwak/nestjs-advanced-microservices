@@ -10,6 +10,7 @@ import {
 @Entity()
 export class Post {
   @PrimaryGeneratedColumn()
+  @ApiProperty()
   id: number;
 
   @Column()

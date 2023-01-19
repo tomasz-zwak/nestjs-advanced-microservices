@@ -4,8 +4,10 @@
   "monorepo": true,
   "root": "apps/sandbox",
   "compilerOptions": {
-    "webpack": false,
-    "tsConfigPath": "apps/sandbox/tsconfig.app.json"
+    "webpack": true,
+    "tsConfigPath": "apps/sandbox/tsconfig.app.json",
+    "assets": ["**/*.proto"],
+    "watchAssets": true
   },
   "projects": {
     "sandbox": {

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package users;
+
+service UsersService {
+  rpc Create (UserDto) returns (User) {}
+  rpc FindOne (UserById) returns (OptionalUser) {}
+  rpc FindByLogin (UserByLogin) returns (User) {}
+}
+
+message UserDto {
+  string login = 1;
+}
+
+message UserById {
+  int32 id = 1;
+}
+
+message UserByLogin {
+  string login = 1;
+}
+
+message User {
+  int32 id = 1;
+  string login = 2;
+}
+
+message OptionalUser {
+ optional User user = 1;
+}
